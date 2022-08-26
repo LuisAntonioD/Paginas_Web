@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Luis Antonio Arredondo">
+
+	<!-- Biblioteca CSS BOOTSTRAP -->
+	<link rel="stylesheet" type="text/css" href="Bootstrap/css/bootstrap.min.css" >
+	<!-- Biblioteca CSS FONT-AWESOME -->
+	<link rel="stylesheet" type="text/css" href="Fontawesome/css/all.min.css" >
+
+	<!-- Script JS JQUERY -->
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<!-- Script JS BOOTSTRAP -->
+	<script src="Bootstrap/js/bootstrap.min.js"></script>
+
+    <title>Ejercicio 21 - Formularios PHP</title>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h3>Ejercicio 21 - Formularios PHP</h3>
+    
+        <!-- Inicio del formulario -->
+        <form action="practica21_procesa.php" 
+                method="post" enctype="multipart/form-data">
+    
+            <input type="hidden" name="MAX_FILE_SIZE" value="100000000000000000000000">
+    
+            <div class="row">
+    
+                <div class="form-group col-md-4">
+                    <label for="nombre"><strong>Nombre:</strong></label>
+                    <input type="text" class="form-control" 
+                            name="nombre" maxlength="10">
+                </div>
+    
+                <div class="form-group col-md-4">
+                    <label for="contrasenia"><strong>Contraseña:</strong></label>
+                    <input type="password" class="form-control" maxlength="8"
+                            name="contrasenia">
+                </div>
+    
+                <div class="form-group col-md-4">
+                    <label for="oculto"><strong>Oculto:</strong></label>
+                    <input type="hidden" class="form-control" 
+                            name="oculto" >
+                </div>
+    
+                <input type="hidden" name="oculto" value="Dato invisible">
+    
+            </div>
+    
+            <div class="row">
+    
+                <div class="form-group col-md-4">
+                    <label for="tipo"><strong>Tipo de beca:</strong></label><br>
+                    <div class="form-check-inline">
+                        <input type="radio" class="form-check-input" 
+                                name="tipo" value="Academica">Academica
+                        <input type="radio" class="form-check-input ml-4" 
+                                name="tipo" value="Economica">Economica
+                        <input type="radio" class="form-check-input ml-4" 
+                                name="tipo" value="Manutencion">Manutencion
+                    </div>
+                </div>
+    
+                <div class="form-group col-md-4">
+                    <label for="beca"><strong>Tienes beca:</strong></label>
+                    <input type="checkbox" class="form-check" 
+                            name="beca">
+                </div>
+    
+                <div class="form-group col-md-4">
+                    <label for="fecnac"><strong>Fecha nacimiento:</strong></label>
+                    <input type="date" class="form-control" 
+                            name="fecnac" maxlength="8">
+                </div>
+    
+            </div>
+    
+            <div class="row">
+    
+                <div class="form-group col-md-4">
+                    <label for="carrera"><strong>Carrera:</strong></label>
+                    <select name="carrera" class="form-control">
+                        <option value="">-- Seleccione carrera --</option>
+                        <optgroup label="División de tecnologí­as">
+                            <option>Tecnologí­as de Información</option>
+                            <option>Mecatronica</option>
+                        </optgroup>
+                        <optgroup label="División industrial">
+                            <option>Nanotecnologí­a</option>
+                            <option>Mecánica Automotriz</option>
+                        </optgroup>
+                    </select>
+                </div>
+    
+                <div class="form-group col-md-4">
+                    <label for="comentario"><strong>Comentario:</strong></label>
+                    <textarea name="comentario" class="form-control" placeholder="Escribe comentario..."></textarea>
+                </div>
+    
+                <div class="form-group col-md-4">
+                    <label for="archivo"><strong>Archivo adjunto:</strong></label>
+                    <input type="file" class="form-control" name="archivo">
+                </div>
+    
+    
+            </div>
+    
+            <button type="submit" class="btn btn-primary btn-lg">
+                <i class="fas fa-upload"></i>
+                Enviar
+            </button>
+    
+            <button type="reset" class="btn btn-danger btn-lg">
+                <i class="fas fa-ban"></i>
+                Borrar formulario
+            </button>
+    
+        </form>	<!-- Fin de formulario -->
+    
+    </div>
+    
+    
+    </body>
+</html>
