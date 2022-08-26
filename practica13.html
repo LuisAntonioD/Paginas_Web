@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Luis Antonio Arredondo">
+
+	<!-- Biblioteca CSS BOOTSTRAP -->
+	<link rel="stylesheet" type="text/css" href="Bootstrap/css/bootstrap.min.css" >
+	<!-- Biblioteca CSS FONT-AWESOME -->
+	<link rel="stylesheet" type="text/css" href="Fontawesome/css/all.min.css" >
+
+	<!-- Script JS JQUERY -->
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<!-- Script JS BOOTSTRAP -->
+	<script src="Bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="js/ejercicio13.js"></script>
+    <title>Ejercicio 13 - Tipos de input y el evento submit</title>
+</head>
+<body>
+
+
+<div class="container">
+
+    <h3 class="mt-3">Ejercicio 13 -Tipos de INPUT y evento SUBMIT</h3>
+
+<form action="./ejercicio13.html">
+
+    <div class="row mt-3">
+        <div class="col col-md-4">
+            <div class="form-group">
+                <label for="nombre"><strong>Nombre</strong></label>
+                <input type="text" class="form-control" id="nombre"/>
+            </div>
+        </div>
+
+        <div class="col col-md-4">
+            <div class="form-group">
+                <label for="contra"><strong>Contraseña</strong></label>
+                <input type="password" class="form-control" id="contra"/>
+            </div>
+        </div>
+
+        <div class="col col-md-4">
+            <div class="form-group">
+                <label for="oculto"><strong>Oculto</strong></label>
+                <input type="hidden" class="form-control" id="oculto" value="Dato invisible"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col col-md-4">
+            <div class="form-check">
+                <label for="regular" class="form-check-label"><strong>¿Eres alumno regular?</strong> </label>
+                <input type="checkbox" class="form-check-input" id="regular">
+            </div>
+        </div>
+
+        
+        <div class="col col-md-8">
+            <h5>Tipo de beca</h5> 
+            <div class="form-check form-check-inline">
+                <label for="beca1">Academica</label>
+                <input type="radio" class="form-check-input" id="beca1" name="beca"/>
+            </div>
+            <div class="form-check form-check-inline">
+                <label for="beca2">Economica</label>
+                <input type="radio" class="form-check-input" id="beca2" name="beca"/>
+            </div>
+            <div class="form-check form-check-inline">
+                <label for="beca3">Manuntencion</label>
+                <input type="radio" class="form-check-input" id="beca3" name="beca"/>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row mt-3">
+        <div class="col col-md-4">
+            <div class="form-group">
+                <label for="grupo"><strong>Grupo</strong></label>
+                <select class="form-control" id="grupo">
+                    <option value=""> --Seleccione grupo-- </option>
+                    <option value="T201">T201 </option>
+                    <option selected>T202</option>
+                    <option>T203</option>
+                    <option>E128</option>
+                    <option>E129</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col col-md-4">
+            <div class="form-group">
+                <label for="contra"><strong>Pasatiempo</strong></label>
+                <select class="form-control" id="pasatiempo"
+                multiple style="height: 130px;">
+                <option>Ver peliculas</option>
+                <option>Videojuegos</option>
+                <option>Leer</option>
+                <option>Procastinar</option>
+                <option>Otros...</option>    
+                </select>
+            </div>
+        </div>
+
+        <div class="col col-md-4">
+            <div class="form-group">
+                <label for="comentario"><strong>comentario sobre la clase AW</strong></label>
+                <textarea placeholder="Escribe lo que quieras..."
+                rows="4" cols="40" id="comentario"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col col-md-2">
+        <button type="button" class="btn btn-outline-primary col col-md-12" 
+            onclick="click_button()">
+            <i class="fas fa-highlighter fa-2x"></i>
+            Botón normal
+        </button>
+        </div>
+        
+        <div class="col col-md-2">
+            <button type="submit" class="btn btn-outline-success col col-md-12"
+            onclick="click_submit( event )">
+            <i class="fas fa-clone fa-2x"></i>
+            Botón submit
+            </button>
+        </div>
+
+        <div class="col col-md-2">
+            <!--El boton reset solo actua sobre el <form>-->
+                <button type="reset" class="btn btn-outline-danger col col-md-12"
+                onclick="click_reset( event )">
+                <i class="fas fa-eraser fa-2x"></i>
+                Botón reset
+                </button>
+        </div>
+        <div class="row mt-5 text-muted">
+            <h5 id="resultado" class="text-secondary mt-3"></h5>
+        </div>
+    </div>
+
+
+    
+</form>
+    
+    <button class="btn btn-lg btn-outline-success" 
+        onclick="salir()">
+            <i class="fas fa-sign-out-alt fa-2x"></i>
+            salir
+    </button>
+    <br><br><br>
+
+</div>
+
+    
+</body>
+</html>
