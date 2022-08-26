@@ -1,0 +1,47 @@
+delimiter //
+CREATE TRIGGER DESCONTAR BEFORE INSERT ON detalle_venta
+ FOR EACH ROW begin
+declare stock int;
+declare tic int;
+set stock = (select cantidad from inventario where id = new.id_inventario);
+set tic = (select count(ticket) from venta) + 1;
+if new.cantidad<=stock then
+update inventario set cantidad = cantidad - new.cantidad where id = new.id_inventario;
+set new.precio = (select precio from producto inner join inventario on (inventario.id_producto  = producto.id) where inventario.id = new.id_inventario);
+set new.subtotal = (select precio from producto inner join inventario on (inventario.id_producto  = producto.id) where inventario.id = new.id_inventario) *new.cantidad;
+update venta set total = total+ (new.precio*new.cantidad) where id = new.id_venta;
+update venta set ticket = tic where id = new.id_venta;
+else
+set new.id= -1;
+end if;
+end //
+delimiter ;
+
+
+
+delimiter //
+create trigger insclie
+  after insert
+  on cliente
+  for each row
+begin
+declare idMax int;
+     set idMax = ( select MAX(id) from usuario );
+      if idMax is null then
+			set idMax = 1;
+            else
+            set idMax = idMax + 1;
+			end if;
+
+  insert into usuario(id,usuario,password,tipo,fecha) values (idMax,new.usuario,new.password,"Cliente",now()); 
+end //
+delimiter ;
+
+
+
+delimiter //
+CREATE TRIGGER DESCONTAR BEFORE UPDATE ON usuario
+ FOR EACH ROW begin
+ insert into clavecambiada(usuario, password,fecha) values (old.usuario, old.password,now());
+ end //
+delimiter ;
